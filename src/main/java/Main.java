@@ -17,7 +17,6 @@ public class Main {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.get("https://www.avito.ru/");
 
@@ -36,19 +35,11 @@ public class Main {
         // Заполним значением “Владивосток” поле город  в открывшемся окне и кликнем по первому предложенному варианту
         // Нажмем на кнопку “Показать объявления”
         WebElement findCity = driver.findElement(By.xpath("//input[@data-marker='popup-location/region/input']"));
-
         String city = "Владивосток";
-
         findCity.sendKeys(city);
-
-        WebElement dynamicElement = wait
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[@data-marker='suggest(0)']")));
-
-        System.out.println(dynamicElement.getText());
-
-        dynamicElement.click();
-
-        driver.findElement(By.xpath("//button[@data-marker='popup-location/save-button']")).click();
+        
+        drv.findElement(By.xpath("//li[@data-marker='suggest(0)']")).click();
+        drv.findElement(By.xpath("//button[@data-marker='popup-location/save-button']")).click();
 
         // Проверим, активирован ли чекбокс, и если не активирован – активируем и нажмем кнопку “Показать объявления”
         WebElement checkBox = driver.findElement(By.xpath("//div[@data-marker='delivery-filter/container']"));
