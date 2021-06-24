@@ -51,9 +51,9 @@ public class Main {
         driver.findElement(By.xpath("//button[@data-marker='popup-location/save-button']")).click();
 
         // Проверим, активирован ли чекбокс, и если не активирован – активируем и нажмем кнопку “Показать объявления”
-        WebElement checkBox = driver.findElement(By.xpath("//input[@data-marker='delivery-filter/input']"));
+        WebElement checkBox = driver.findElement(By.xpath("//div[@data-marker='delivery-filter/container']"));
         if (!checkBox.isSelected()) {
-            driver.findElement(By.xpath("//span[@data-marker='delivery-filter/text']")).click();
+            checkBox.click();
         }
 
         driver.findElement(By.xpath("//button[@data-marker='search-filters/submit-button']")).click();
