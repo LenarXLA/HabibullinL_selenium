@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        // Драйвер для версии Google Chrome 91.0.4472.114
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
