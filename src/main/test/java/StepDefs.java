@@ -72,12 +72,12 @@ public class StepDefs {
     }
 
     @Тогда("открыласть страница результатов по запросу {word}")
-    public void isNeedPage(String printer) {
+    public void isNeedPage(String query) {
         String str = driver.findElement(By.xpath("//h1[@data-marker='page-title/text']")).getText();
-        if (str.contains(printer)) {
-            System.out.println("open page contain printer");
+        if (str.contains(query)) {
+            System.out.printf("open page contain %S", query);
         } else {
-            System.out.println("open page NOT contain printer");
+            System.out.printf("open page NOT contain %S", query);
         }
     }
 
