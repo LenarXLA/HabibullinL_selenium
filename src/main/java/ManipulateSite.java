@@ -1,6 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class ManipulateSite {
     public static LocatorPage locatorPage;
@@ -15,7 +15,7 @@ public class ManipulateSite {
         //окно разворачивается на полный экран
         driver.manage().window().maximize();
         //задержка на выполнение теста = 10 сек.
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //получение ссылки на страницу входа из файла настроек
         driver.get(ConfProperties.getProperty("page"));
     }

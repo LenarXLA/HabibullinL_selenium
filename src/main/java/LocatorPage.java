@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
-import java.time.Duration;
 import java.util.List;
 
 public class LocatorPage {
@@ -75,7 +74,7 @@ public class LocatorPage {
      * метод для выбора селектора вида товаров
      */
     public void selectCategoryTool(String select) {
-        new Select(selectTool).selectByVisibleText(select);
+        new Select(selectTool).selectByValue(select);
     }
     /**
      * метод для ввода товара
@@ -93,7 +92,7 @@ public class LocatorPage {
      * метод для ввода города
      */
     public void inputCity(String city) {
-        WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait driverWait = new WebDriverWait(driver, 10);
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-marker='popup-location/region/input']")));
         findCity.sendKeys(city);
     }
@@ -101,7 +100,7 @@ public class LocatorPage {
      * метод для осуществления нажатия кнопки найденного города в выпадающем списке
      */
     public void clickBtnFindingCity(String city) {
-        WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait driverWait = new WebDriverWait(driver, 10);
         driverWait.until(ExpectedConditions.textToBe(By.xpath("//li[@data-marker='suggest(0)']/span/span/span/strong"), city));
         btnFindingCity.click();
     }
@@ -129,9 +128,9 @@ public class LocatorPage {
      * метод для выбора селектора фильтра "дороже-дешевле"
      */
     public void selectFilter(String select) {
-        WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait driverWait = new WebDriverWait(driver, 10);
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//option[text()='По умолчанию']/..")));
-        new Select(selectFilter).selectByVisibleText(select);
+        new Select(selectFilter).selectByValue(select);
     }
     /**
      * метод для вывода в консоль название и стоимость самых дорогих принтеров
