@@ -75,9 +75,9 @@ public class StepDefs {
     public void isNeedPage(String query) {
         String str = driver.findElement(By.xpath("//h1[@data-marker='page-title/text']")).getText();
         if (str.contains(query)) {
-            System.out.printf("open page contain %S", query);
+            System.out.printf("open page contain %s%n", query);
         } else {
-            System.out.printf("open page NOT contain %S", query);
+            System.out.printf("open page NOT contain %s%n", query);
         }
     }
 
