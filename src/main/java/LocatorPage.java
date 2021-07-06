@@ -52,7 +52,7 @@ public class LocatorPage {
     /**
      * определение локатора чекбокса доставки
      */
-    @FindBy(xpath = "//div[@data-marker='delivery-filter/container']")
+    @FindBy(xpath = "//span[text()='С Авито Доставкой']")
     private WebElement checkBoxDelivery;
     /**
      * определение локатора кнопки “Показать объявления” при заданном фильтре
